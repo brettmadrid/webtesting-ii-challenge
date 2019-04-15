@@ -5,8 +5,8 @@ export default function Display(props) {
 
   return (
     <>
-      <div>{`Balls: ${balls}`}</div>
-      <div>{`Strikes: ${strikes}`}</div>
+      <div data-testid="balls-count">{`Balls: ${balls}`}</div>
+      <div data-testid="strikes-count">{`Strikes: ${strikes}`}</div>
     </>
   )
 }

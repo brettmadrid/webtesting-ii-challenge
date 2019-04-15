@@ -2,9 +2,10 @@ write tests that simulate as much as possible the manual process you would take 
 
 1. start yarn test to see if test module is running.  add --watch to json to keep it running.
 
-2. yarn add react-testing-library --dev
+2. yarn add react-testing-library --dev and yarn add jest-dom
 
 3. import { render } from 'react-testing-library'; // add to app.test.js
+   import 'jest-dom/extend-expect';
 
   this will allow for the automatic mounting and unmounting of the component
 
@@ -34,7 +35,7 @@ write tests that simulate as much as possible the manual process you would take 
     queryByText(/hello orld/i); // note missing w
   })
 
-8. To be able to test React components at a deeper level: 
+8. To be able to test React components at a deeper level:
 
   yarn add jest-dom // https://github.com/gnapse/jest-dom for list of matchers
 
@@ -45,7 +46,7 @@ write tests that simulate as much as possible the manual process you would take 
 10. in app.test.js, now that jest-dom is installed, use the toBeInTheDocument matcher. Refactor to look like:
 
   it('displays hello world', () => {
-    const { queryByText } = render(<App />)
+    const { queryByText } = render(<App />);
     const text = queryByText(/hello world/i);
     expect(text).toBeInTheDocument();
   })
